@@ -1,12 +1,7 @@
 name: Go
 
 on:
-  push:
-    branches:
-      - dev
-  pull_request:
-    branches:
-      - dev
+  workflow_dispatch:
 
 jobs:
 
@@ -30,3 +25,11 @@ jobs:
 
       - name: Build C++ static lib
         run: make desktop
+      - name: Remove Unused
+        run: |
+          pwd \;
+          ls \;          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Release
+          path: app/build/bin
