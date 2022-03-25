@@ -25,11 +25,8 @@ jobs:
 
       - name: Build C++ static lib
         run: make desktop
-      - name: Remove Unused
-        run: |
-          pwd \;
-          ls \;          
+        
       - uses: actions/upload-artifact@v2
         with:
           name: Release
-          path: app/build/bin
+          path: relaybaton/bin
